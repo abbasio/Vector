@@ -1,0 +1,1 @@
+This is a small learning project to better understand the std::vector type and dynamic arrays in C++. It's a creation of a rudimentary Vector class that mimics some of the features of vectors in C++, such as `push_back`, `pop_back`, `insert`, and `erase`. 
