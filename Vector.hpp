@@ -88,16 +88,9 @@ class Vector{
             size = other.size;
             return *this;
         }   
-       
-        // Reduce capacity if we have more overhead than we need
-        void ReduceCapacity(){ 
-            if (size < (capacity / 4)){
-                capacity = capacity / 2;
-            }
-        }
-                
-        // v.PushBack(3) -- Appends the value 3 to vector v  
-        void PushBack(const T& object){
+      
+        // Increase capacity if we need more overhead
+        void IncreaseCapacity(){ 
             if(size == capacity){
                 T* newArray = new T[capacity * 2];
                 for (int i = 0; i < size; i++){
@@ -107,6 +100,17 @@ class Vector{
                 elements = newArray;
                 capacity *= 2;
             }
+        } 
+        // Reduce capacity if we have more overhead than we need
+        void ReduceCapacity(){ 
+            if (size < (capacity / 4)){
+                capacity = capacity / 2;
+            }
+        }
+                
+        // v.PushBack(3) -- Appends the value 3 to vector v  
+        void PushBack(const T& object){
+            IncreaseCapacity();
             elements[size] = object;
             size++;
         }         
@@ -132,10 +136,8 @@ class Vector{
       
         // v.Insert(4, x) -- Inserts the value x into vector v at index 4
         void Insert(int index, T value){
-            if(size == capacity){
-                capacity *= 2;
-            }
-           
+            IncreaseCapacity();
+
             size++;
            
             for(int i = size - 1; i >= index; i--){

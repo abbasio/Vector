@@ -3,6 +3,9 @@
 
 int main(){
    Vector<float> v;
+   v.PushBack(0);
+   v.PushBack(10);
+   v.PushBack(20);
    v.PushBack(30);
    v.PushBack(40);
    v.PushBack(50);
@@ -11,11 +14,14 @@ int main(){
    v.PushBack(80);
    v.PushBack(90);
    v.PushBack(100);
+   v.PushBack(110);
+   v.PushBack(120);
+   v.PushBack(130);
    v.PushBack(999);
    v.PopBack();
-   v.Erase(0);
+   v.Erase(5);
 
-   v.Insert(7, 11);
+   v.Insert(10, 500);
 
    Vector<float> w;
    w = v;
